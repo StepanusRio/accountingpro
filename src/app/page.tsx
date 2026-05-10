@@ -185,11 +185,10 @@ function NeracaComparison({
       {/* Divider with balance status */}
       <div className="flex items-center gap-2">
         <div className="flex-1 h-px bg-border-default" />
-        <div className={`flex items-center gap-1.5 px-2 py-0.5 rounded-full text-[11px] font-semibold ${
-          isBalanced
+        <div className={`flex items-center gap-1.5 px-2 py-0.5 rounded-full text-[11px] font-semibold ${isBalanced
             ? 'bg-success-muted text-success'
             : 'bg-danger-muted text-danger'
-        }`}>
+          }`}>
           {isBalanced ? (
             <><CheckCircle2 className="h-3 w-3" /> Seimbang</>
           ) : (
@@ -275,9 +274,8 @@ function IncomeExpenseChart({
         </div>
       </div>
       {/* Net result */}
-      <div className={`flex items-center justify-between pt-2 border-t border-border-subtle text-[12px] font-bold ${
-        netIncome >= 0 ? 'text-success' : 'text-danger'
-      }`}>
+      <div className={`flex items-center justify-between pt-2 border-t border-border-subtle text-[12px] font-bold ${netIncome >= 0 ? 'text-success' : 'text-danger'
+        }`}>
         <span>{netIncome >= 0 ? 'Laba Bersih' : 'Rugi Bersih'}</span>
         <span className="nums">Rp {fmt(netIncome)}</span>
       </div>
