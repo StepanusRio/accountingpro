@@ -1,0 +1,94 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+enum AccountType {
+  Aset
+  Kewajiban
+  Ekuitas
+  Pendapatan
+  Beban
+}
+
+enum NormalBalance {
+  Debit
+  Kredit
+}
+
+enum ReportMapping {
+  Neraca
+  LabaRugi
+}
+
+enum AuxiliaryType {
+  Piutang
+  Hutang
+  Lainnya
+}
+
+model Account {
+  id            String        @id @default(cuid())
+  kode          String        @unique
+  nama          String
+  tipe          AccountType
+  saldoNormal   NormalBalance
+  reportMapping ReportMapping
+  
+  journalLines  JournalLine[]
+  
+  createdAt     DateTime      @default(now())
+  updatedAt     DateTime      @updatedAt
+
+  @@map("accounts")
+}
+
+model AuxiliaryAccount {
+  id            String        @id @default(cuid())
+  kode          String        @unique
+  nama          String
+  tipe          AuxiliaryType
+  
+  journalLines  JournalLine[]
+
+  createdAt     DateTime      @default(now())
+  updatedAt     DateTime      @updatedAt
+
+  @@map("auxiliary_accounts")
+}
+
+model JournalHeader {
+  id            String        @id @default(cuid())
+  transactionId String        @unique
+  tanggal       DateTime
+  bukti         String
+  keterangan    String?
+
+  lines         JournalLine[]
+
+  createdAt     DateTime      @default(now())
+  updatedAt     DateTime      @updatedAt
+
+  @@map("journal_headers")
+}
+
+model JournalLine {
+  id                 String            @id @default(cuid())
+  headerId           String
+  accountId          String
+  auxiliaryAccountId String?
+  debit              Decimal           @default(0) @db.Decimal(19, 4)
+  kredit             Decimal           @default(0) @db.Decimal(19, 4)
+
+  header             JournalHeader     @relation(fields: [headerId], references: [id], onDelete: Cascade)
+  account            Account           @relation(fields: [accountId], references: [id], onDelete: Restrict)
+  auxiliaryAccount   AuxiliaryAccount? @relation(fields: [auxiliaryAccountId], references: [id], onDelete: SetNull)
+
+  createdAt          DateTime          @default(now())
+  updatedAt          DateTime          @updatedAt
+
+  @@map("journal_lines")
+}

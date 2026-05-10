@@ -1,0 +1,180 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-05-08T04:33:00Z",
+  "title": "Design System: Akuntansi Pro",
+  "extensions": {
+    "colorMeta": {
+      "ledger-indigo": {
+        "role": "primary",
+        "displayName": "Ledger Indigo",
+        "canonical": "#6366f1",
+        "tonalRamp": ["#1e1b4b", "#312e81", "#3730a3", "#4338ca", "#4f46e5", "#6366f1", "#818cf8", "#a5b4fc"]
+      },
+      "surface-base": {
+        "role": "neutral",
+        "displayName": "Surface Base",
+        "canonical": "#0c0e14",
+        "tonalRamp": ["#0c0e14", "#10121a", "#13151e", "#16182a", "#1a1d2b", "#1e2133", "#1f2235", "#252940"]
+      },
+      "text-primary": {
+        "role": "neutral",
+        "displayName": "Text Primary",
+        "canonical": "#eef0f6",
+        "tonalRamp": ["#5c5f77", "#6b6e88", "#8b8fa7", "#a0a4b8", "#b5b9c9", "#caceda", "#dde0e8", "#eef0f6"]
+      },
+      "semantic-success": {
+        "role": "semantic",
+        "displayName": "Balanced Green",
+        "canonical": "#34d399",
+        "tonalRamp": ["#064e3b", "#065f46", "#047857", "#059669", "#10b981", "#34d399", "#6ee7b7", "#a7f3d0"]
+      },
+      "semantic-danger": {
+        "role": "semantic",
+        "displayName": "Error Red",
+        "canonical": "#f87171",
+        "tonalRamp": ["#7f1d1d", "#991b1b", "#b91c1c", "#dc2626", "#ef4444", "#f87171", "#fca5a5", "#fecaca"]
+      },
+      "semantic-warning": {
+        "role": "semantic",
+        "displayName": "Alert Amber",
+        "canonical": "#fbbf24",
+        "tonalRamp": ["#78350f", "#92400e", "#b45309", "#d97706", "#f59e0b", "#fbbf24", "#fcd34d", "#fde68a"]
+      },
+      "semantic-info": {
+        "role": "semantic",
+        "displayName": "Info Blue",
+        "canonical": "#60a5fa",
+        "tonalRamp": ["#1e3a5f", "#1e40af", "#1d4ed8", "#2563eb", "#3b82f6", "#60a5fa", "#93c5fd", "#bfdbfe"]
+      }
+    },
+    "typographyMeta": {
+      "page-title": { "displayName": "Page Title", "purpose": "One per page. Dashboard, Bagan Akun, Jurnal Umum." },
+      "body": { "displayName": "Body", "purpose": "Default prose, table cells, form descriptions." },
+      "label": { "displayName": "Label", "purpose": "Form field labels, secondary annotations." },
+      "stat-value": { "displayName": "Stat Value", "purpose": "Financial headline figures. Always tabular-nums." },
+      "table-header": { "displayName": "Table Header", "purpose": "Column headers. Small, uppercase, authoritative." },
+      "mono": { "displayName": "Monospace", "purpose": "Code references, technical IDs." }
+    },
+    "shadows": [
+      { "name": "ambient-low", "value": "0 4px 12px rgba(0, 0, 0, 0.15)", "purpose": "Card hover. Barely-perceptible lift." },
+      { "name": "accent-glow", "value": "0 0 20px rgba(99, 102, 241, 0.25)", "purpose": "Primary button hover. Functional glow." },
+      { "name": "focus-ring", "value": "0 0 0 2px var(--color-surface-base), 0 0 0 4px var(--color-accent-500)", "purpose": "Keyboard focus indicator. Double-ring." },
+      { "name": "tab-active", "value": "0 1px 4px rgba(99, 102, 241, 0.3)", "purpose": "Active tab pill lift." },
+      { "name": "modal-deep", "value": "0 24px 48px rgba(0, 0, 0, 0.4)", "purpose": "Modal dialog. Heaviest shadow in the system." }
+    ],
+    "motion": [
+      { "name": "ease-state", "value": "ease 0.15s", "purpose": "Button, input, badge state transitions." },
+      { "name": "ease-row-hover", "value": "ease 0.1s", "purpose": "Table row hover background." },
+      { "name": "ease-modal-in", "value": "ease 0.2s", "purpose": "Modal slide-up entrance." },
+      { "name": "ease-fade-in", "value": "ease 0.15s", "purpose": "Modal overlay fade." }
+    ],
+    "breakpoints": [
+      { "name": "sm", "value": "640px" },
+      { "name": "lg", "value": "1024px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Main call-to-action. Used for Simpan, Tambah, primary submissions.",
+      "html": "<button class=\"ds-btn-primary\"><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><line x1=\"12\" y1=\"5\" x2=\"12\" y2=\"19\"/><line x1=\"5\" y1=\"12\" x2=\"19\" y2=\"12\"/></svg> Tambah Akun</button>",
+      "css": ".ds-btn-primary { display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem; font-size: 0.8125rem; font-weight: 500; padding: 0.5rem 1rem; border-radius: 10px; cursor: pointer; transition: all 0.15s ease; outline: none; border: none; white-space: nowrap; line-height: 1.25rem; background: #6366f1; color: #ffffff; font-family: Inter, ui-sans-serif, system-ui, sans-serif; } .ds-btn-primary:hover { background: #4f46e5; box-shadow: 0 0 20px rgba(99, 102, 241, 0.25); } .ds-btn-primary:focus-visible { box-shadow: 0 0 0 2px #0c0e14, 0 0 0 4px #6366f1; } .ds-btn-primary:active { background: #4338ca; }"
+    },
+    {
+      "name": "Ghost Button",
+      "kind": "button",
+      "refersTo": "button-ghost",
+      "description": "Secondary action. Used for Batal, navigation, non-primary actions.",
+      "html": "<button class=\"ds-btn-ghost\">Batal</button>",
+      "css": ".ds-btn-ghost { display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem; font-size: 0.8125rem; font-weight: 500; padding: 0.5rem 1rem; border-radius: 10px; cursor: pointer; transition: all 0.15s ease; outline: none; white-space: nowrap; line-height: 1.25rem; background: transparent; color: #8b8fa7; border: 1px solid #1f2235; font-family: Inter, ui-sans-serif, system-ui, sans-serif; } .ds-btn-ghost:hover { background: #1e2133; color: #eef0f6; border-color: #5c5f77; } .ds-btn-ghost:focus-visible { box-shadow: 0 0 0 2px #0c0e14, 0 0 0 4px #6366f1; }"
+    },
+    {
+      "name": "Danger Button",
+      "kind": "button",
+      "refersTo": "button-danger",
+      "description": "Destructive action. Delete account, remove journal line.",
+      "html": "<button class=\"ds-btn-danger\"><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><polyline points=\"3 6 5 6 21 6\"/><path d=\"M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2\"/></svg></button>",
+      "css": ".ds-btn-danger { display: inline-flex; align-items: center; justify-content: center; padding: 0.375rem; border-radius: 10px; cursor: pointer; transition: all 0.15s ease; outline: none; border: none; background: transparent; color: #f87171; font-family: Inter, ui-sans-serif, system-ui, sans-serif; } .ds-btn-danger:hover { background: rgba(248, 113, 113, 0.12); } .ds-btn-danger:focus-visible { box-shadow: 0 0 0 2px #0c0e14, 0 0 0 4px #6366f1; }"
+    },
+    {
+      "name": "Text Input",
+      "kind": "input",
+      "refersTo": "input-default",
+      "description": "Standard form input. Used for account codes, transaction IDs, dates.",
+      "html": "<input class=\"ds-input\" type=\"text\" placeholder=\"Contoh: 1101\" />",
+      "css": ".ds-input { width: 100%; background: #10121a; border: 1px solid #1f2235; border-radius: 10px; padding: 0.5rem 0.75rem; font-size: 0.8125rem; color: #eef0f6; transition: border-color 0.15s ease, box-shadow 0.15s ease; outline: none; font-family: Inter, ui-sans-serif, system-ui, sans-serif; } .ds-input::placeholder { color: #5c5f77; } .ds-input:focus { border-color: #6366f1; box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.15); }"
+    },
+    {
+      "name": "Navigation Item (Active)",
+      "kind": "nav",
+      "refersTo": "nav-active",
+      "description": "Active sidebar navigation link. Shows current page.",
+      "html": "<a class=\"ds-nav-active\"><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><rect x=\"3\" y=\"3\" width=\"7\" height=\"7\"/><rect x=\"14\" y=\"3\" width=\"7\" height=\"7\"/><rect x=\"14\" y=\"14\" width=\"7\" height=\"7\"/><rect x=\"3\" y=\"14\" width=\"7\" height=\"7\"/></svg><span>Dashboard</span><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><polyline points=\"9 18 15 12 9 6\"/></svg></a>",
+      "css": ".ds-nav-active { display: flex; align-items: center; gap: 0.75rem; border-radius: 14px; padding: 0.5rem 0.75rem; font-size: 0.8125rem; font-weight: 500; text-decoration: none; cursor: pointer; transition: all 0.15s ease; background: rgba(99, 102, 241, 0.12); color: #818cf8; font-family: Inter, ui-sans-serif, system-ui, sans-serif; } .ds-nav-active span { flex: 1; } .ds-nav-active:hover { background: rgba(99, 102, 241, 0.12); color: #818cf8; }"
+    },
+    {
+      "name": "Accent Badge",
+      "kind": "chip",
+      "refersTo": "badge-accent",
+      "description": "Category indicator. Used for account types (Ekuitas, Aset, etc.).",
+      "html": "<span class=\"ds-badge-accent\">Ekuitas</span> <span class=\"ds-badge-success\">Pendapatan</span> <span class=\"ds-badge-warning\">Kewajiban</span> <span class=\"ds-badge-danger\">Beban</span> <span class=\"ds-badge-info\">Aset</span>",
+      "css": ".ds-badge-accent, .ds-badge-success, .ds-badge-warning, .ds-badge-danger, .ds-badge-info { display: inline-flex; align-items: center; padding: 0.125rem 0.5rem; font-size: 0.6875rem; font-weight: 600; letter-spacing: 0.02em; border-radius: 9999px; line-height: 1.25rem; font-family: Inter, ui-sans-serif, system-ui, sans-serif; } .ds-badge-accent { background: rgba(99, 102, 241, 0.12); color: #818cf8; } .ds-badge-success { background: rgba(52, 211, 153, 0.12); color: #34d399; } .ds-badge-warning { background: rgba(251, 191, 36, 0.12); color: #fbbf24; } .ds-badge-danger { background: rgba(248, 113, 113, 0.12); color: #f87171; } .ds-badge-info { background: rgba(96, 165, 250, 0.12); color: #60a5fa; }"
+    },
+    {
+      "name": "Card",
+      "kind": "card",
+      "refersTo": "card-default",
+      "description": "Standard content container. Journal entries, form groups, getting-started blocks.",
+      "html": "<div class=\"ds-card\"><p class=\"ds-card-title\">Transaksi Terbaru</p><p class=\"ds-card-body\">Belum ada transaksi.</p></div>",
+      "css": ".ds-card { background: #13151e; border: 1px solid #1f2235; border-radius: 14px; padding: 1.25rem 1.5rem; transition: border-color 0.2s ease, box-shadow 0.2s ease; font-family: Inter, ui-sans-serif, system-ui, sans-serif; } .ds-card:hover { border-color: #16182a; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); } .ds-card-title { font-size: 0.875rem; font-weight: 600; color: #eef0f6; margin-bottom: 0.5rem; } .ds-card-body { font-size: 0.8125rem; color: #5c5f77; }"
+    },
+    {
+      "name": "Tab Bar",
+      "kind": "nav",
+      "refersTo": "tab-active",
+      "description": "Report section switcher. Neraca Lajur, Laba Rugi, Neraca.",
+      "html": "<div class=\"ds-tab-bar\"><button class=\"ds-tab ds-tab-active\">Neraca Lajur</button><button class=\"ds-tab\">Laba Rugi</button><button class=\"ds-tab\">Neraca</button></div>",
+      "css": ".ds-tab-bar { display: flex; gap: 0.25rem; padding: 0.25rem; background: #1a1d2b; border-radius: 10px; border: 1px solid #1f2235; font-family: Inter, ui-sans-serif, system-ui, sans-serif; } .ds-tab { padding: 0.5rem 1rem; font-size: 0.8125rem; font-weight: 500; color: #5c5f77; border-radius: 6px; cursor: pointer; transition: all 0.15s ease; border: none; background: transparent; white-space: nowrap; } .ds-tab:hover { color: #8b8fa7; background: #1e2133; } .ds-tab-active { background: #6366f1; color: #ffffff; box-shadow: 0 1px 4px rgba(99, 102, 241, 0.3); } .ds-tab-active:hover { background: #6366f1; color: #ffffff; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Accounting Ledger",
+    "overview": "A meticulous double-entry ledger, translated from ruled paper and fountain-pen ink into a digital control surface. Every element exists to serve the numbers. The interface is dark because the user's attention should land on data, not on the container. Surfaces recede; figures advance. Decoration is absent not because it was removed, but because it was never considered.\n\nThe system inherits its discipline from traditional bookkeeping: columns align, totals anchor to the bottom-right, and balance indicators give instant feedback. PRODUCT.md's personality (\"precise, reliable, professional\") governs every decision. This is not a consumer app. It is not playful. It does not use color to entertain. Color confirms state (balanced, unbalanced, error) and nothing more.",
+    "keyCharacteristics": [
+      "Data-dense, not decorative. Financial figures are the primary visual content.",
+      "Dark tonal layering with a single restrained accent.",
+      "Tabular numeric alignment across all financial displays.",
+      "Indonesian-language UI with id-ID number formatting.",
+      "Quiet motion: state transitions only, no choreography."
+    ],
+    "rules": [
+      { "name": "The Ink Discipline Rule", "body": "Ledger Indigo occupies less than 10% of any screen's surface area. Its scarcity is what makes it meaningful.", "section": "colors" },
+      { "name": "The No Pure Black/White Rule", "body": "Every neutral is tinted toward the indigo hue family. #000 and #fff are prohibited. The darkest surface is #0c0e14; the lightest text is #eef0f6.", "section": "colors" },
+      { "name": "The Tabular Figures Rule", "body": "Every element that displays a financial amount uses font-variant-numeric: tabular-nums and font-feature-settings: \"tnum\". Columns of numbers must align vertically without exception.", "section": "typography" },
+      { "name": "The 65ch Rule", "body": "No body text line exceeds 65 characters.", "section": "typography" },
+      { "name": "The Flat-By-Default Rule", "body": "Surfaces are flat at rest. Shadows appear only as a response to state (hover, focus, active, elevated z-index).", "section": "elevation" }
+    ],
+    "dos": [
+      "Do use tabular figures (font-variant-numeric: tabular-nums) on every financial amount, balance, and total.",
+      "Do keep Ledger Indigo under 10% of any screen's surface area.",
+      "Do use the three-tier tonal surface system (base → raised → overlay) to establish hierarchy.",
+      "Do show balance status immediately with green/red indicators.",
+      "Do format all numbers with id-ID locale and minimumFractionDigits: 2.",
+      "Do keep all UI copy in Bahasa Indonesia."
+    ],
+    "donts": [
+      "Don't use overly playful or colorful design patterns (Notion, Trello, Asana).",
+      "Don't use #000 or #fff anywhere.",
+      "Don't use border-left or border-right greater than 1px as a colored accent stripe.",
+      "Don't use gradient text (background-clip: text with a gradient).",
+      "Don't use glassmorphism as the default surface treatment.",
+      "Don't build hero-metric templates with gradient accent bands.",
+      "Don't create identical card grids with icon + heading + text repeated.",
+      "Don't use modals as the first solution.",
+      "Don't bloat the interface with enterprise-ERP density (SAP, Oracle).",
+      "Don't animate CSS layout properties. Use opacity and transform only."
+    ]
+  }
+}
