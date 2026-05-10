@@ -1,10 +1,11 @@
 import { NextResponse } from 'next/server'
 import prisma from '@/lib/prisma'
 
-export async function GET(request: Request, { params }: { params: { id: string } }) {
+export async function GET(request: Request, { params }: { params: Promise<{ id: string }> }) {
   try {
+    const { id } = await params;
     const account = await prisma.account.findUnique({
-      where: { id: params.id }
+      where: { id }
     })
     
     if (!account) {
@@ -17,13 +18,14 @@ export async function GET(request: Request, { params }: { params: { id: string }
   }
 }
 
-export async function PUT(request: Request, { params }: { params: { id: string } }) {
+export async function PUT(request: Request, { params }: { params: Promise<{ id: string }> }) {
   try {
+    const { id } = await params;
     const body = await request.json()
     const { kode, nama, tipe, saldoNormal, reportMapping } = body
 
     const account = await prisma.account.update({
-      where: { id: params.id },
+      where: { id },
       data: { kode, nama, tipe, saldoNormal, reportMapping }
     })
 
@@ -36,10 +38,11 @@ export async function PUT(request: Request, { params }: { params: { id: string }
   }
 }
 
-export async function DELETE(request: Request, { params }: { params: { id: string } }) {
+export async function DELETE(request: Request, { params }: { params: Promise<{ id: string }> }) {
   try {
+    const { id } = await params;
     await prisma.account.delete({
-      where: { id: params.id }
+      where: { id }
     })
     return NextResponse.json({ success: true })
   } catch (error: unknown) {
